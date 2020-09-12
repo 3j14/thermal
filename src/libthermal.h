@@ -40,7 +40,7 @@ class Connection {
     void configureTTY(void);
 
     public:
-        Connection(std::string path);
+        Connection(std::string& path);
         ~Connection();
 
         int open(void);
@@ -53,8 +53,8 @@ class Connection {
          *
          * @param msg: Message to be printed
          */
-        int write(const std::string msg);
-        int write(const char *msg);
+        int write(const std::string& msg);
+        int write(const char* msg);
 
         /**
          * Write byte to serial printer
@@ -77,14 +77,19 @@ class Connection {
          *
          * @param msg: Message to be printed
          */
-        int println(const std::string msg);
-        int println(const char *msg);
+        int println(const std::string& msg);
+        int println(const char* msg);
         /**
          * Feed print paper by n rows. Defaults to one row
          *
          * @param rows: Number of rows
          */
         int feed(int rows = 1);
+
+        /**
+         * Print Image using OpenCV
+         */
+        int printImage(const std::string& filename);
 };
 
 #endif

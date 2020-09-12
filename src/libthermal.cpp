@@ -2,7 +2,7 @@
 
 
 
-Connection::Connection(std::string path)
+Connection::Connection(std::string& path)
 {
     this->path = path;
     // Allocate memory for termios struct
@@ -39,12 +39,12 @@ int Connection::close(void)
     return ::close(fd);
 }
 
-int Connection::write(const std::string msg)
+int Connection::write(const std::string& msg)
 {
     return ::write(fd, msg.c_str(), msg.size());
 }
 
-int Connection::write(const char *msg)
+int Connection::write(const char* msg)
 {
     std::string str(msg);
     // It is way easier to handle the size std::string than it is for
@@ -69,17 +69,24 @@ int Connection::feed(int rows)
     return this->write(27, 'd', rows);
 }
 
-int Connection::println(const std::string msg)
+int Connection::println(const std::string& msg)
 {
     int res = this->write(msg);
     if (res == -1) return res;
     return this->feed();
 }
 
-int Connection::println(const char *msg)
+int Connection::println(const char* msg)
 {
     std::string str(msg);
     return this->println(str);
+}
+
+int Connection::printImage(const std::string& filename)
+{
+    this->println(filename);
+    // Magick::Image image_("test.jpg");
+    return 0;
 }
 
 void Connection::configureTTY(void)
