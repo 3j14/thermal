@@ -27,6 +27,12 @@ You can use the CLI to print single strings:
 ```
 Currently, this only works with **QR701** printers (Baud set to `9600`).
 
+### Emulating a Serial Port
+
+```bash
+socat PTY,link=./serial-port,raw,echo=1 -
+```
+
 ## License
 
 This project is licensed under the **BSD 3-Clause "New" or "Revised" License**:
