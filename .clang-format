@@ -1,0 +1,10 @@
+---
+Language: Cpp
+BasedOnStyle: Mozilla
+IndentWidth: 4
+ContinuationIndentWidth: 4
+ColumnLimit: 79
+SpacesInContainerLiterals: false
+Cpp11BracedListStyle: true
+AllowAllArgumentsOnNextLine: true
+AlignAfterOpenBracket: AlwaysBreak
