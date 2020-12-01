@@ -1,31 +1,23 @@
 # libthermal
 
-Library for thermal printers like the **QR701** or **Adafruit Mini Thermal Receipt Printer**.
+CPython Library for thermal printers like the **QR701** or
+**Adafruit Mini Thermal Receipt Printer**. Developed as a C Extension
+for Python.
 
-A portion of this code was heavily inspired by
-[mbedded.ninja's blog post](https://blog.mbedded.ninja/programming/operating-systems/linux/linux-serial-ports-using-c-cpp/)
-about **Linux Serial Ports Using C/C++** and the
-[Adafruit Thermal Printer Library](https://github.com/adafruit/Adafruit-Thermal-Printer-Library) for Arduino.
-
-As this is my first real project
-developed mainly in C, I am very much happy for feedback and help.
+As this is my first real project developed mainly in C++, I am very much
+happy for feedback and help.
 
 ## Build
 
-A Makefile is provided to compile the source code. The executable provides
-an easy CLI for printing strings.
+This project can be build using the supplied `setup.py` file:
 
-```bash
-make
+```
+python setup.py install
 ```
 
-## Usage
+## Example
 
-You can use the CLI to print single strings:
-```bash
-./bin/thermal /dev/ttyS0 "Hello World!"
-```
-Currently, this only works with **QR701** printers (Baud set to `9600`).
+See `example.py` for a working example.
 
 ### Emulating a Serial Port
 
@@ -34,6 +26,11 @@ socat PTY,link=./serial-port,raw,echo=1 -
 ```
 
 ## License
+
+A portion of this code is heavily inspired by
+[mbedded.ninja's blog post](https://blog.mbedded.ninja/programming/operating-systems/linux/linux-serial-ports-using-c-cpp/)
+about **Linux Serial Ports Using C/C++** and the
+[Adafruit Thermal Printer Library](https://github.com/adafruit/Adafruit-Thermal-Printer-Library) for Arduino.
 
 This project is licensed under the **BSD 3-Clause "New" or "Revised" License**:
 
